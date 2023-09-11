@@ -1,4 +1,4 @@
-﻿//-------------------------------------------------------------------------
+﻿﻿//-------------------------------------------------------------------------
 // <copyright file="Program.cs" company="Universidad Católica del Uruguay">
 // Copyright (c) Programación II. Derechos reservados.
 // </copyright>
@@ -25,7 +25,12 @@ namespace Full_GRASP_And_SOLID
             recipe.FinalProduct = GetProduct("Café con leche");
             recipe.AddStep(new Step(GetProduct("Café"), 100, GetEquipment("Cafetera"), 120));
             recipe.AddStep(new Step(GetProduct("Leche"), 200, GetEquipment("Hervidor"), 60));
-            recipe.PrintRecipe();
+            ConsolePrinter console = new ConsolePrinter();
+            console.ImprimirReceta(recipe);
+        /*
+        Utlizamos el principio SRP al separar la responsabilidad de imprimir la receta en esta clase por separado, sacandole
+        la responsabilidad de imprimirse a si misma a la receta
+        */
         }
 
         private static void PopulateCatalogs()
